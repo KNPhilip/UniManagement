@@ -1,0 +1,104 @@
+﻿<Window x:Class="Gui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gui"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="700"
+        Width="1200">
+    <Grid>
+        <Button Content="Tilføj"
+                HorizontalAlignment="Left"
+                Margin="310,99,0,0"
+                Padding="12, 5"
+                VerticalAlignment="Top"
+                RenderTransformOrigin="1.182,0.669"
+                Click="Button_Click" />
+        <Button Content="Rediger"
+                HorizontalAlignment="Left"
+                Margin="372,99,0,0"
+                Padding="6, 5"
+                VerticalAlignment="Top"
+                RenderTransformOrigin="1.182,0.669" />
+        <TextBox x:Name="AddProduct_Name"
+                 HorizontalAlignment="Left"
+                 Margin="430,40,0,0"
+                 Text="Navn"
+                 MaxHeight="18"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="120" />
+        <TextBox x:Name="AddProduct_Description"
+                 HorizontalAlignment="Left"
+                 Margin="430,80,0,0"
+                 Text="Beskrivelse"
+                 Height="50"
+                 MaxHeight="50"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="120" />
+        <TextBox x:Name="AddProduct_UnitPrice"
+                 HorizontalAlignment="Left"
+                 Margin="560,40,0,0"
+                 Text="Pris"
+                 MaxHeight="18"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="120" />
+        <TextBox x:Name="AddProduct_AvailableProducts"
+                 HorizontalAlignment="Left"
+                 Margin="430,60,0,0"
+                 Text="Antal på lager"
+                 MaxHeight="18"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="120" />
+        <DatePicker x:Name="AddProduct_CreationDate"
+                    HorizontalAlignment="Left"
+                    Margin="560,60,0,0"
+                    VerticalAlignment="Top"
+                    Width="120" />
+        <ComboBox x:Name="AddProduct_Category"
+                  HorizontalAlignment="Left"
+                  Margin="312,42,0,0"
+                  VerticalAlignment="Top"
+                  SelectedValuePath="Content"
+                  Width="105">
+            <ComboBoxItem Content="Drikkevarer" />
+            <ComboBoxItem Content="Accessories" />
+            <ComboBoxItem Content="Byggematerialer" />
+        </ComboBox>
+        <DataGrid x:Name="GridListPeople"
+                  Margin="10,22,908,347"
+                  CanUserAddRows="False"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Fornavn:"
+                                    Binding="{Binding Path=FirstName}" />
+                <DataGridTextColumn Header="Tlf:"
+                                    Binding="{Binding Path=ContactInformations.PhoneNumber}" />
+                <DataGridTextColumn Header="Mail:"
+                                    Binding="{Binding Path=Mail}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="GridListAddresses"
+                  Margin="10,342,783,10"
+                  CanUserAddRows="False"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Adresse:"
+                                    Binding="{Binding Path=StreetName}" />
+                <DataGridTextColumn Header="Adresssenummer:"
+                                    Binding="{Binding Path=StreetNumber}" />
+                <DataGridTextColumn Header="Postnummer:"
+                                    Binding="{Binding Path=Zip}" />
+                <DataGridTextColumn Header="By:"
+                                    Binding="{Binding Path=City}" />
+                <DataGridTextColumn Header="Land:"
+                                    Binding="{Binding Path=Country}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
