@@ -9,12 +9,21 @@ namespace Services
     {
         public string GetWeather()
         {
+            //URL to the API:
             string url = "https://api.openweathermap.org/data/2.5/forecast?id=2610613&appid=7b752b30f13e65f4bebcea3e2f82f5bb";
             WebClient client = new();
+
+            //Create a web client:
             string json = client.DownloadString(url);
+
+            //Get the data:
             Root rootData = JsonConvert.DeserializeObject<Root>(json);
+
+            //Deserialize the data, i.e. convert the JSON to C# objects:
             double temperature = rootData.list[0].main.temp;
-            return $"{temperature - 273.15:f1}";
+
+            //Return the weather:
+            return $"{temperature - 273.15:f1} °C";
         }
     }
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
